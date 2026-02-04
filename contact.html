@@ -1,131 +1,186 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Contact Me - My Website</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html, body { height:100%; font-family: Arial, sans-serif; }
+
+        /* Body background for entire page */
+        body {
+            background: #222; /* fallback color */
+            color: white;
+        }
+
+        /* Header */
+        .header {
+            background-color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h1 { margin:0; }
+        .header a {
+            color:white;
+            text-decoration:none;
+            margin:0 10px;
+        }
+
+        /* Hero Section with handshake background */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1581092795362-4c3be3c8b6c4?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+            background-size: cover;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background-color: rgba(0,0,0,0.6); /* overlay for readability */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 50px 20px;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; max-width: 800px; margin: 0 auto; line-height:1.6; }
+
+        /* Main content */
+        .content {
+            max-width: 1200px;
+            margin: -50px auto 0 auto; /* overlap hero slightly */
+            padding: 50px 20px;
+        }
+
+        .box {
+            background-color: rgba(255,255,255,0.95);
+            color: black;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        /* Contact layout */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4%;
+            margin-bottom: 50px;
+        }
+        .contact-column { flex: 1 1 48%; }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-column { flex: 1 1 100%; }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: Arial, sans-serif;">
+<body>
+
     <!-- Header -->
-    <div style="background-color: #333; color: white; text-align: center; padding: 20px;">
-        <h1 style="margin: 0;">My Website</h1>
-        <div style="margin-top: 15px;">
-            <a href="index.html" style="color: white; text-decoration: none; margin: 0 10px;">Home</a> |
-            <a href="about.html" style="color: white; text-decoration: none; margin: 0 10px;">About Me</a> |
-            <a href="favorites.html" style="color: white; text-decoration: none; margin: 0 10px;">My Favorites</a> |
-            <a href="portfolio.html" style="color: white; text-decoration: none; margin: 0 10px;">Portfolio</a> |
-            <a href="contact.html" style="color: white; text-decoration: none; margin: 0 10px;">Contact Me</a>
+    <div class="header">
+        <h1>My Website</h1>
+        <div style="margin-top: 10px;">
+            <a href="index.html">Home</a> |
+            <a href="about.html">About Me</a> |
+            <a href="favorites.html">My Favorites</a> |
+            <a href="portfolio.html">Portfolio</a> |
+            <a href="contact.html">Contact Me</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Let's Connect</h1>
+            <p>Have a project idea, a question, or just want to say hello? I'm here to collaborate and create amazing things together.</p>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div style="padding: 50px 20px; max-width: 1200px; margin: 0 auto;">
-        <h1 style="text-align: center; margin-bottom: 40px;">Contact Me</h1>
-        
-        <!-- Contact Introduction -->
-        <div style="margin-bottom: 40px; text-align: center;">
-            <h2>Get In Touch</h2>
-            <p style="line-height: 1.6; font-size: 18px;">
-                I'd love to hear from you! Whether you have a project in mind, want to collaborate, 
-                or just want to say hello, feel free to reach out using the form below.
-            </p>
-        </div>
-
-        <!-- Contact Form and Map Row -->
-        <div style="margin-bottom: 50px; font-size: 0;">
-            <!-- Contact Form -->
-            <div style="display: inline-block; width: 48%; vertical-align: top; padding-right: 4%;">
-                <h3>Send Me a Message</h3>
-                <p style="margin-bottom: 20px;">Fill out the form below and I'll get back to you as soon as possible.</p>
-                
-                <form style="background-color: #f4f4f4; padding: 30px; border-radius: 8px;">
-                    <div style="margin-bottom: 20px;">
-                        <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Full Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email Address:</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <label for="subject" style="display: block; margin-bottom: 5px; font-weight: bold;">Subject:</label>
-                        <input type="text" id="subject" name="subject" placeholder="What is this regarding?" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                    </div>
-                    
-                    <div style="margin-bottom: 20px;">
-                        <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message:</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Type your message here..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-                    </div>
-                    
-                    <button type="submit" style="background-color: #333; color: white; border: none; padding: 12px 30px; font-size: 16px; cursor: pointer; border-radius: 4px;">Send Message</button>
-                </form>
+    <div class="content">
+        <!-- Contact Form and Map -->
+        <div class="contact-row">
+            <!-- Form -->
+            <div class="contact-column">
+                <div class="box">
+                    <h2>Send Me a Message</h2>
+                    <form>
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
             </div>
 
-            <!-- Google Map -->
-            <div style="display: inline-block; width: 48%; vertical-align: top;">
-                <h3>Find Me Here</h3>
-                <p style="margin-bottom: 20px;">You can also visit me at my office location.</p>
-                
-                <div style="background-color: #f4f4f4; padding: 30px; border-radius: 8px;">
-                    <iframe 
-                        src="" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0; border-radius: 4px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    
-                    <div style="margin-top: 20px;">
-                        <p><strong>Address:</strong><br>
-                        Brewerville city,<br>
-                       Monrovia, Liberia</p>
-                        
-                        <p><strong>Email:</strong> hello@mywebsite.com</p>
-                        <p><strong>Phone:</strong> (231)774757849</p>
-                    </div>
+            <!-- Map / Contact Info -->
+            <div class="contact-column">
+                <div class="box">
+                    <h2>Find Me Here</h2>
+                    <iframe src="" width="100%" height="300" style="border:0; border-radius:4px;" allowfullscreen></iframe>
+                    <p><strong>Address:</strong><br>Brewerville city, Monrovia, Liberia</p>
+                    <p><strong>Email:</strong> hello@mywebsite.com</p>
+                    <p><strong>Phone:</strong> (231) 774757849</p>
                 </div>
             </div>
         </div>
 
         <!-- FAQ Section -->
-        <div style="background-color: #f4f4f4; padding: 40px; border-radius: 8px;">
-            <h2 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h2>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 10px;">How long does it take to get a response?</h3>
-                <p style="line-height: 1.6; margin: 0;">I typically respond to all inquiries within 24-48 hours. For urgent matters, please mention "URGENT" in your subject line.</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 10px;">Do you work on freelance projects?</h3>
-                <p style="line-height: 1.6; margin: 0;">Yes, I'm available for freelance work. Please include details about your project in your message so I can understand your requirements better.</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 10px;">What are your working hours?</h3>
-                <p style="line-height: 1.6; margin: 0;">I work Monday through Friday, 9 AM to 6 PM EST. Messages received outside these hours will be addressed the next business day.</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h3 style="margin-bottom: 10px;">Do you offer consultations?</h3>
-                <p style="line-height: 1.6; margin: 0;">Yes, I offer free 30-minute initial consultations to discuss your project needs and see if we're a good fit to work together.</p>
-            </div>
-            
-            <div>
-                <h3 style="margin-bottom: 10px;">What information should I include in my message?</h3>
-                <p style="line-height: 1.6; margin: 0;">Please include your name, project details, timeline, and budget if applicable. The more information you provide, the better I can assist you.</p>
-            </div>
+        <div class="box">
+            <h2>Frequently Asked Questions</h2>
+            <h3>How long does it take to get a response?</h3>
+            <p>Typically within 24-48 hours. Mention "URGENT" in your subject for urgent matters.</p>
+            <h3>Do you work on freelance projects?</h3>
+            <p>Yes! Include details about your project so I can understand your requirements.</p>
+            <h3>What are your working hours?</h3>
+            <p>Monday to Friday, 9 AM - 6 PM EST. Messages outside these hours are answered the next business day.</p>
+            <h3>Do you offer consultations?</h3>
+            <p>Yes, free 30-minute initial consultation to discuss project needs.</p>
+            <h3>What information should I include in my message?</h3>
+            <p>Name, project details, timeline, and budget. The more info, the better I can assist you.</p>
         </div>
     </div>
 
     <!-- Footer -->
-    <div style="background-color: #333; color: white; text-align: center; padding: 20px;">
-        <p style="margin: 0;">&copy; 2026 My Website. All rights reserved.</p>
+    <div class="footer">
+        <p>&copy; 2026 My Website. All rights reserved.</p>
     </div>
-</body>
 
+</body>
 </html>
